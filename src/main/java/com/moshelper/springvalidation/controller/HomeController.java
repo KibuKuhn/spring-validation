@@ -10,16 +10,9 @@ import java.util.List;
 @RestController
 public class HomeController {
 
-    @GetMapping("/")
-    public ArrayList<Integer> homePage(){
-        ArrayList<Integer> test = new ArrayList<Integer>();
-        test.add(5);
-        test.add(10);
-        return test;
-    }
-
     @PostMapping("/post")
     public Student postStudent(@Valid @RequestBody Student student){
         return student;
     }
+
 }
