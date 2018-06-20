@@ -1,4 +1,12 @@
 # Spring Boot Validation Example
+## How to use example project.
+#### 1. Clone project.
+```
+git clone https://github.com/MosHelper/spring-boot-validation-example.git
+```
+#### 2. Let's Run gradle project.
+
+
 ## How to use validation in new project.
 #### 1. Add Dependencies
 >in file "build.gradle"
