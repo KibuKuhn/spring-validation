@@ -1,12 +1,12 @@
-package com.moshelper.springvalidation;
+package kibu.kuhn.springboot.validation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringValidationApplication {
+public class ValidationApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringValidationApplication.class, args);
+        SpringApplication.run(ValidationApp.class, args);
     }
 }
