@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kibu.kuhn.springboot.validation.domain.Person;
+import kibu.kuhn.springboot.validation.exception.ErrorMessages;
 import kibu.kuhn.springboot.validation.validation.Validation;
 
 @Api(tags = {"New"})
@@ -24,7 +25,8 @@ public class NewController {
 
     @Validation
     @ApiResponses({
-      @ApiResponse(message = "Creates a person", code = 201, response = Person.class)
+      @ApiResponse(message = "Creates a person", code = 201, response = Person.class),
+      @ApiResponse(message = "Validation error message", code = 406, response = ErrorMessages.class)
     })
     @ApiOperation("Creates a person")
     @PutMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)

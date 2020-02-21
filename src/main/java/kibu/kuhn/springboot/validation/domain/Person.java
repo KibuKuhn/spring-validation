@@ -25,8 +25,8 @@ public class Person {
     @Email(message = "Email not valid")
     private String email;
     @JsonProperty(required = false)
+    @NotNull(message="personId must not be null")
     private Long personId;
-    @NotNull
     @Valid
     @JsonProperty(required = false)
     private List<Person> friends;
@@ -70,10 +70,4 @@ public class Person {
     public void setPersonId(Long id) {
       this.personId = id;
     }
-
-
-
-
-
-
 }

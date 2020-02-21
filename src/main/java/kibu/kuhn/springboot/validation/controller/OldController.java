@@ -18,6 +18,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import kibu.kuhn.springboot.validation.domain.Person;
+import kibu.kuhn.springboot.validation.exception.ErrorMessages;
 
 @Api(tags = {"Old"})
 @RestController
@@ -26,7 +27,8 @@ import kibu.kuhn.springboot.validation.domain.Person;
 public class OldController {
 
     @ApiResponses({
-      @ApiResponse(message = "Creates a person", code = 201, response = Person.class)
+      @ApiResponse(message = "Creates a person", code = 201, response = Person.class),
+      @ApiResponse(message = "Validation error message", code = 406, response = ErrorMessages.class)
     })
     @ApiOperation("Creates a person")
     @PostMapping(path = "/simple", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -35,7 +37,8 @@ public class OldController {
     }
 
     @ApiResponses({
-      @ApiResponse(message = "Creates a person", code = 201, response = Person.class)
+      @ApiResponse(message = "Creates a person", code = 201, response = Person.class),
+      @ApiResponse(message = "Validation error message", code = 406, response = ErrorMessages.class)
     })
     @ApiOperation("Creates a person")
     @PutMapping(path = "/mixed/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)

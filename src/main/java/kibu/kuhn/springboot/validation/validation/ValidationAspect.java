@@ -44,7 +44,7 @@ public class ValidationAspect {
           Method method = target.getClass().getMethod(joinPoint.getSignature().getName(), paramTypes);
           ExecutableValidator executableValidator = validator.forExecutables();
           Set<ConstraintViolation<Object>> parameterViolations = executableValidator.validateParameters(target, method, args);
-          violations = mergeVolations(violations, parameterViolations);
+          violations = mergeVolations(violations, parameterViolations, method);
         }
         catch (Exception ex) {
           throw new IllegalStateException(ex);
@@ -59,7 +59,8 @@ public class ValidationAspect {
     }
 
     private Set<ConstraintViolation<Object>> mergeVolations(Set<ConstraintViolation<Object>> violations,
-        Set<ConstraintViolation<Object>> parameterViolations) {
+        Set<ConstraintViolation<Object>> parameterViolations, Method method) {
+
       violations.addAll(parameterViolations);
 
       return violations;
@@ -69,7 +70,6 @@ public class ValidationAspect {
       Set<ConstraintViolation<Object>> violations =
           IntStream.range(0, params.length)
                    .mapToObj(index -> validate(params[index], index))
-                   .filter(iv -> !iv.isEmpty())
                    .flatMap(set -> set.stream())
                    .collect(Collectors.toSet());
 
@@ -77,8 +77,7 @@ public class ValidationAspect {
     }
 
     private Set<ConstraintViolation<Object>> validate(Object param, int index) {
-      Set<ConstraintViolation<Object>> violations = validator.validate(param);
-      return violations;
-
+        Set<ConstraintViolation<Object>> violations = validator.validate(param);
+        return violations;
     }
 }

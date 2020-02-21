@@ -32,7 +32,6 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.25'
     compile 'ch.qos.logback:logback-classic:1.2.3'
     compile 'javax.validation:validation-api:2.0.1.Final'
-
     compile 'org.springframework:spring-aop:5.2.3.RELEASE'
     compile 'org.aspectj:aspectjweaver:1.9.5'
 
