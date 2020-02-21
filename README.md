@@ -1,4 +1,4 @@
-### Spring boot Bean validation (JSR303) demo ###
+### Spring Boot bean validation (JSR303) demo ###
 <b>Validate request body and parameters in one step</b>
 
 Ever tried to validate body and parameters of a REST call in 1 step? This does not work.
