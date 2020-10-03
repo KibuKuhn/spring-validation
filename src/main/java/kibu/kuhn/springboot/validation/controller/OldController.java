@@ -30,7 +30,7 @@ public class OldController {
       @ApiResponse(message = "Creates a person", code = 201, response = Person.class),
       @ApiResponse(message = "Validation error message", code = 406, response = ErrorMessages.class)
     })
-    @ApiOperation("Creates a person")
+    @ApiOperation("Creates a person. Validates the body.")
     @PostMapping(path = "/simple", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Person> createSimple(@Valid @RequestBody(required = true) Person person){
       return ResponseEntity.status(CREATED).body(person);
@@ -40,7 +40,7 @@ public class OldController {
       @ApiResponse(message = "Creates a person", code = 201, response = Person.class),
       @ApiResponse(message = "Validation error message", code = 406, response = ErrorMessages.class)
     })
-    @ApiOperation("Creates a person")
+    @ApiOperation("Creates a person. Validates just the path variable 'id', although body validation is annotated")
     @PutMapping(path = "/mixed/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Person> createMixed(
         @ApiParam(name = "person", required = true, value = "Person data")
