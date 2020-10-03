@@ -48,7 +48,7 @@ public class OldController {
         @Valid Person person,
         @ApiParam(name = "id", required = true, value = "Person id, must be >= 2", allowEmptyValue = true, example = "2")
         @PathVariable(name = "id", required = true)
-        @Min(value = 2, message = "id must be >= 2 sein") Long id) {
+        @Min(value = 2, message = "id must be >= 2") Long id) {
       person.setPersonId(id);
       return ResponseEntity.status(CREATED).body(person);
     }
